@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CsvPlayerSource.cs" />
+    <Compile Include="CsvReader.cs" />
+    <Compile Include="GeneralPosition.cs" />
+    <Compile Include="IPlayerSource.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
