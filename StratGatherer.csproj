@@ -32,8 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetEnv, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetEnv.1.0.1\lib\net45\DotNetEnv.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,15 +56,29 @@
   <ItemGroup>
     <Compile Include="CsvPlayerSource.cs" />
     <Compile Include="CsvReader.cs" />
-    <Compile Include="GeneralPosition.cs" />
+    <Compile Include="Models\GeneralPosition.cs" />
+    <Compile Include="IDataRetriever.cs" />
     <Compile Include="IPlayerSource.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="MySportsFeedsDataRetriever.cs" />
+    <Compile Include="MySportsFeeds\CumulativePlayerStats.cs" />
+    <Compile Include="MySportsFeeds\MySportsFeedsClient.cs" />
+    <Compile Include="MySportsFeeds\MySportsFeedsPlayer.cs" />
+    <Compile Include="MySportsFeeds\MySportsFeedsResponse.cs" />
+    <Compile Include="MySportsFeeds\PlayerStatsEntry.cs" />
+    <Compile Include="MySportsFeeds\Statistic.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerToQuery.cs" />
+    <Compile Include="Models\Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".env">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include=".env.example" />
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
