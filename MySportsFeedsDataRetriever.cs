@@ -8,14 +8,22 @@ using StratGatherer.Models;
 
 namespace StratGatherer
 {
+    /// <summary>
+    /// Retrieves stats from MySportsFeeds.
+    /// </summary>
     public class MySportsFeedsDataRetriever : IDataRetriever
     {
-        public IEnumerable<Player> GetStats(IEnumerable<PlayerToQuery> playersToQuery)
+        /// <summary>
+        /// Gets stats from MySportsFeeds for a given collection of players.
+        /// </summary>
+        /// <param name="playersToQuery">The players to query stats for.</param>
+        /// <returns>A collection of players with their statistics.</returns>
+        public IEnumerable<CompiledPlayer> GetStats(IEnumerable<PlayerToQuery> playersToQuery)
         {
             MySportsFeedsResponse response = MySportsFeedsClient.Query(playersToQuery);
 
-            //TODO: parse response into collection of Players
-            return new List<Player>();
+            //TODO: parse response into collection of Compiled Players
+            return new List<CompiledPlayer>();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace StratGatherer
         {
             DotNetEnv.Env.Load();
             IEnumerable<PlayerToQuery> playersToQuery = GetPlayersToQuery();
-            IEnumerable<Player> players = GetStats(playersToQuery);            
+            IEnumerable<CompiledPlayer> players = GetStats(playersToQuery);            
         }
 
         private static IEnumerable<PlayerToQuery> GetPlayersToQuery()
@@ -27,7 +27,7 @@ namespace StratGatherer
             return source.GetPlayers();
         }
 
-        private static IEnumerable<Player> GetStats(IEnumerable<PlayerToQuery> playersToQuery)
+        private static IEnumerable<CompiledPlayer> GetStats(IEnumerable<PlayerToQuery> playersToQuery)
         {
             IDataRetriever dataRetriever = new MySportsFeedsDataRetriever();
             return dataRetriever.GetStats(playersToQuery);

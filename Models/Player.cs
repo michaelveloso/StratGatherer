@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StratGatherer.Models
 {
-    public class Player
+    /// <summary>
+    /// The player with all stats.
+    /// </summary>
+    public class CompiledPlayer
     {
     }
 }

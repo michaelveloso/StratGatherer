@@ -9,6 +9,9 @@ using StratGatherer.Models;
 
 namespace StratGatherer.MySportsFeeds
 {
+    /// <summary>
+    /// The client for communicating with MySportsFeeds.
+    /// </summary>
     public class MySportsFeedsClient
     {
         private const string MY_SPORTS_FEEDS_BASE_URL = "https://api.mysportsfeeds.com/v1.1/pull/mlb/2016-regular/cumulative_player_stats.json?playerstats=AB,H,R,HR,ER";
@@ -18,6 +21,11 @@ namespace StratGatherer.MySportsFeeds
         private IRestRequest _request;
         private readonly IEnumerable<PlayerToQuery> _playersToQuery;
 
+        /// <summary>
+        /// Gets the response from MySportsFeeds for a given collection of players.
+        /// </summary>
+        /// <param name="playersToQuery">The players to get stats for.</param>
+        /// <returns>The response from MySportsFeeds.</returns>
         public static MySportsFeedsResponse Query(IEnumerable<PlayerToQuery> playersToQuery)
         {
             return new MySportsFeedsClient(playersToQuery).Query();
@@ -29,7 +37,7 @@ namespace StratGatherer.MySportsFeeds
             _request = new RestRequest();
         }
 
-        public MySportsFeedsResponse Query()
+        private MySportsFeedsResponse Query()
         {
             RestClient httpClient = new RestClient(MY_SPORTS_FEEDS_BASE_URL);
 

@@ -11,10 +11,24 @@ namespace StratGatherer.Models
     /// </summary>
     public class PlayerToQuery
     {
+        /// <summary>
+        /// The player's first name.
+        /// </summary>
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// The player's last name.
+        /// </summary>
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Whether the player is primarily a batter or pitcher.
+        /// </summary>
         public GeneralPosition GeneralPosition { get; set; }
 
+        /// <summary>
+        /// The concatenated name for quering MySportsFeeds.
+        /// </summary>
         public string ConcatenatedName
         {
             get
