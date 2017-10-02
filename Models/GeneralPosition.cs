@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StratGatherer
+namespace StratGatherer.Models
 {
     /// <summary>
     /// Denotes either a batter or pitcher.

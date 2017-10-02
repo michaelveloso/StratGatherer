@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StratGatherer.Models;
 
 namespace StratGatherer
 {
@@ -15,6 +16,6 @@ namespace StratGatherer
         /// Gets a collection of players to gather information for.
         /// </summary>
         /// <returns>A collection of players to gather information for.</returns>
-        IEnumerable<Player> GetPlayers();
+        IEnumerable<PlayerToQuery> GetPlayers();
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using StratGatherer.Models;
 
 namespace StratGatherer
 {
@@ -28,17 +29,17 @@ namespace StratGatherer
         /// Gets a collection of players.
         /// </summary>
         /// <returns>A collection of players.</returns>
-        public IEnumerable<Player> GetPlayers()
+        public IEnumerable<PlayerToQuery> GetPlayers()
         {
             IEnumerable<string> lines = CsvReader.ReadCsvWithoutHeader(_fileLocation);
-            IEnumerable<Player> players = lines.Select(ConvertToPlayer);
+            IEnumerable<PlayerToQuery> players = lines.Select(ConvertToPlayer);
             return players;
         }     
 
-        private static Player ConvertToPlayer(string csvPlayerData)
+        private static PlayerToQuery ConvertToPlayer(string csvPlayerData)
         {
             string[] playerFields = csvPlayerData.Split(SEPARATOR);
-            Player player = new Player {
+            PlayerToQuery player = new PlayerToQuery {
                 FirstName = playerFields[FIRST_NAME_INDEX],
                 LastName = playerFields[LAST_NAME_INDEX],
                 GeneralPosition = ConvertToGeneralPosition(playerFields[GENERAL_POSITION_INDEX])
