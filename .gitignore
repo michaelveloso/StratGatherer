@@ -1,5 +1,13 @@
 /bin
 /obj
 /Properties
+/packages
+/TestResults
 
-.suo
+/StratGatherer.Tests/bin
+/StratGatherer.Tests/obj
+/StratGatherer.Tests/Properties
+
+*.suo
+.env
+*.user
