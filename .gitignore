@@ -2,6 +2,12 @@
 /obj
 /Properties
 /packages
+/TestResults
+
+/StratGatherer.Tests/bin
+/StratGatherer.Tests/obj
+/StratGatherer.Tests/Properties
 
 *.suo
 .env
+*.user

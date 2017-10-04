@@ -8,14 +8,14 @@ using StratGatherer.Models;
 namespace StratGatherer
 {
     /// <summary>
-    /// The source of players to gather information for.
+    /// The source of players to gather statistics for.
     /// </summary>
     public interface IPlayerSource
     {
         /// <summary>
-        /// Gets a collection of players to gather information for.
+        /// Gets a collection of players to gather statistics for.
         /// </summary>
-        /// <returns>A collection of players to gather information for.</returns>
+        /// <returns>A collection of players to gather statistics for.</returns>
         IEnumerable<PlayerToQuery> GetPlayers();
     }
 }

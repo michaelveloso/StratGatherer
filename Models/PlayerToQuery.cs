@@ -22,11 +22,6 @@ namespace StratGatherer.Models
         public string LastName { get; set; }
 
         /// <summary>
-        /// Whether the player is primarily a batter or pitcher.
-        /// </summary>
-        public GeneralPosition GeneralPosition { get; set; }
-
-        /// <summary>
         /// The concatenated name for quering MySportsFeeds.
         /// </summary>
         public string ConcatenatedName

@@ -17,6 +17,6 @@ namespace StratGatherer
         /// </summary>
         /// <param name="playersToQuery">The players to query stats for.</param>
         /// <returns>A collection of players with their statistics.</returns>
-        IEnumerable<CompiledPlayer> GetStats(IEnumerable<PlayerToQuery> playersToQuery);
+        IEnumerable<Player> GetStats(IEnumerable<PlayerToQuery> playersToQuery);
     }
 }

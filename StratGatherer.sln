@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratGatherer", "StratGatherer.csproj", "{43689713-B50B-4C6C-AD8D-4B5C450EDA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratGatherer.Tests", "..\StratGatherer.Tests\StratGatherer.Tests.csproj", "{21B69BB1-56F3-4980-8E47-FB53658CFFE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratGatherer.Tests", "StratGatherer.Tests\StratGatherer.Tests.csproj", "{21B69BB1-56F3-4980-8E47-FB53658CFFE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

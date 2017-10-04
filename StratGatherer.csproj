@@ -54,23 +54,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\MySportsFeedsToBatterConverter.cs" />
+    <Compile Include="Converters\MySportsFeedsToPitcherConverter.cs" />
     <Compile Include="CsvPlayerSource.cs" />
     <Compile Include="CsvReader.cs" />
-    <Compile Include="Models\GeneralPosition.cs" />
     <Compile Include="IDataRetriever.cs" />
     <Compile Include="IPlayerSource.cs" />
-    <Compile Include="MySportsFeedsDataRetriever.cs" />
-    <Compile Include="MySportsFeeds\CumulativePlayerStats.cs" />
-    <Compile Include="MySportsFeeds\MySportsFeedsClient.cs" />
-    <Compile Include="MySportsFeeds\MySportsFeedsPlayer.cs" />
-    <Compile Include="MySportsFeeds\MySportsFeedsResponse.cs" />
-    <Compile Include="MySportsFeeds\PlayerStatsEntry.cs" />
-    <Compile Include="MySportsFeeds\Statistic.cs" />
+    <Compile Include="Models\Pitcher.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="MySportsFeeds\MySportsFeedsDataRetriever.cs" />
+    <Compile Include="MySportsFeeds\Response\CumulativePlayerStats.cs" />
+    <Compile Include="MySportsFeeds\MySportsFeedsClient.cs" />
+    <Compile Include="MySportsFeeds\Response\MySportsFeedsPlayer.cs" />
+    <Compile Include="MySportsFeeds\Response\MySportsFeedsResponse.cs" />
+    <Compile Include="MySportsFeeds\Response\PlayerStatsEntry.cs" />
+    <Compile Include="MySportsFeeds\Response\Statistic.cs" />
+    <Compile Include="Models\Batter.cs" />
     <Compile Include="Models\PlayerToQuery.cs" />
     <Compile Include="Models\Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisticsCompiler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".env">

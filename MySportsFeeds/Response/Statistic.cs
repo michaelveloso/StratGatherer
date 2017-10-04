@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace StratGatherer.MySportsFeeds
+namespace StratGatherer.MySportsFeeds.Response
 {
     public class Statistic
     {

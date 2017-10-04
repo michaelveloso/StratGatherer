@@ -15,7 +15,6 @@ namespace StratGatherer
     {
         public const int FIRST_NAME_INDEX = 0;
         public const int LAST_NAME_INDEX = 1;
-        public const int GENERAL_POSITION_INDEX = 2;
         public const char SEPARATOR = ',';
 
         private string _fileLocation;
@@ -41,15 +40,9 @@ namespace StratGatherer
             string[] playerFields = csvPlayerData.Split(SEPARATOR);
             PlayerToQuery player = new PlayerToQuery {
                 FirstName = playerFields[FIRST_NAME_INDEX],
-                LastName = playerFields[LAST_NAME_INDEX],
-                GeneralPosition = ConvertToGeneralPosition(playerFields[GENERAL_POSITION_INDEX])
+                LastName = playerFields[LAST_NAME_INDEX]
             };
             return player;
-        }
-
-        private static GeneralPosition ConvertToGeneralPosition(string generalPositionValue)
-        {
-            return (GeneralPosition)Enum.Parse(typeof(GeneralPosition), generalPositionValue);
         }
     }
 }

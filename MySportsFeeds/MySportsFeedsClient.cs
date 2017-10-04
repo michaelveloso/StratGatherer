@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using RestSharp;
 using Newtonsoft.Json;
 using StratGatherer.Models;
+using StratGatherer.MySportsFeeds.Response;
 
 namespace StratGatherer.MySportsFeeds
 {
@@ -14,7 +15,7 @@ namespace StratGatherer.MySportsFeeds
     /// </summary>
     public class MySportsFeedsClient
     {
-        private const string MY_SPORTS_FEEDS_BASE_URL = "https://api.mysportsfeeds.com/v1.1/pull/mlb/2016-regular/cumulative_player_stats.json?playerstats=AB,H,R,HR,ER";
+        private const string MY_SPORTS_FEEDS_BASE_URL = "https://api.mysportsfeeds.com/v1.1/pull/mlb/2017-regular/cumulative_player_stats.json";
         private const string USERNAME_ENV_VARIABLE = "MY_SPORTS_FEEDS_USERNAME";
         private const string PASSWORD_ENV_VARIABLE = "MY_SPORTS_FEEDS_PASSWORD";
 
@@ -51,6 +52,12 @@ namespace StratGatherer.MySportsFeeds
         private void BuildRequest()
         {
             AddHeaders();
+            AddQueryParams();            
+        }
+
+        private void AddQueryParams()
+        {
+            AddStats();
             AddPlayers();
         }
 
@@ -58,6 +65,11 @@ namespace StratGatherer.MySportsFeeds
         {
             IEnumerable<string> concatenatedPlayerNames = _playersToQuery.Select(player => player.ConcatenatedName);
             _request.AddQueryParameter("player", string.Join(",", concatenatedPlayerNames.ToArray()));
+        }
+
+        private void AddStats()
+        {
+            _request.AddQueryParameter("playerstats", "GS,AVG,OBP,SLG,IP,PA");
         }
 
         private void AddHeaders()
