@@ -26,7 +26,7 @@ namespace StratGatherer.Tests
                 PlateAppearances = 100
             };
 
-            Assert.AreEqual(115, batter.MaximumPlateApperances);
+            Assert.AreEqual(115, batter.MaximumPlateAppearances);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StratGatherer;
 using StratGatherer.Models;
+using StratGatherer.Csv;
 using System.IO;
 
 namespace StratGatherer.Tests

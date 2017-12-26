@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using StratGatherer.Models;
 
-namespace StratGatherer
+namespace StratGatherer.Csv
 {
     /// <summary>
     /// Gets a collection of players from a csv file.

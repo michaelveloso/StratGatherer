@@ -29,7 +29,7 @@ namespace StratGatherer.Models
         /// <summary>
         /// The maximum number of plate appearances a player can have in a Strat season.
         /// </summary>
-        public int MaximumPlateApperances
+        public int MaximumPlateAppearances
         {
             get
             {

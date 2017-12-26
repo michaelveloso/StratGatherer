@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StratGatherer;
+using StratGatherer.Csv;
 using System.IO;
 
 namespace StratGatherer.Tests
@@ -36,7 +37,8 @@ namespace StratGatherer.Tests
 
         [TestMethod]
         public void ReadCsvWithoutHeader_FromTestFile_ExcludesHeader()
-        {//Arrange
+        {
+            //Arrange
 
             //Act
             IEnumerable<string> testPlayers = CsvReader.ReadCsvWithoutHeader(_fileLocation);

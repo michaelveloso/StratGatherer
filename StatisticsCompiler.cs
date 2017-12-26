@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StratGatherer.Models;
 using System.IO;
 using StratGatherer.MySportsFeeds;
+using StratGatherer.Csv;
 
 namespace StratGatherer
 {
@@ -22,7 +23,8 @@ namespace StratGatherer
         public static void CompileStats()
         {
             IEnumerable<PlayerToQuery> playersToQuery = GetPlayersToQuery();
-            IEnumerable<Player> players = GetStats(playersToQuery);       
+            IEnumerable<Player> players = GetStats(playersToQuery);
+            OutputStatistics(players);
         }
 
         private static IEnumerable<PlayerToQuery> GetPlayersToQuery()
@@ -36,6 +38,12 @@ namespace StratGatherer
         {
             IDataRetriever dataRetriever = new MySportsFeedsDataRetriever();
             return dataRetriever.GetStats(playersToQuery);
+        }
+
+        private static void OutputStatistics(IEnumerable<Player> players)
+        {
+            IStatsOutput iStatsOutput = new CsvStatsOutput();
+            iStatsOutput.OutputStats(players);
         }
     }
 }
