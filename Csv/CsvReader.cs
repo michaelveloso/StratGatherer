@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace StratGatherer
+namespace StratGatherer.Csv
 {
     /// <summary>
     /// Reads a csv file and returns each line in a collection of strings.
