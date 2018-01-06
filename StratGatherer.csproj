@@ -56,15 +56,19 @@
   <ItemGroup>
     <Compile Include="Converters\MySportsFeedsToBatterConverter.cs" />
     <Compile Include="Converters\MySportsFeedsToPitcherConverter.cs" />
+    <Compile Include="Converters\StratCsvLineToBatterConverter.cs" />
+    <Compile Include="Csv\CsvFieldingRatingsRetriever.cs" />
     <Compile Include="Csv\CsvFormatter.cs" />
     <Compile Include="Csv\CsvPlayerSource.cs" />
     <Compile Include="Csv\CsvReader.cs" />
     <Compile Include="Csv\CsvStatsOutput.cs" />
     <Compile Include="IDataRetriever.cs" />
+    <Compile Include="IFieldingRatingsRetriever.cs" />
     <Compile Include="IPlayerSource.cs" />
     <Compile Include="IStatsOutput.cs" />
     <Compile Include="Models\Pitcher.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Position.cs" />
     <Compile Include="MySportsFeeds\MySportsFeedsDataRetriever.cs" />
     <Compile Include="MySportsFeeds\Response\CumulativePlayerStats.cs" />
     <Compile Include="MySportsFeeds\MySportsFeedsClient.cs" />
@@ -83,9 +87,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include=".env.example" />
+    <Content Include="2017_strat_ratings.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="App.config" />
+    <None Include="FreeAgents2018.csv" />
     <None Include="packages.config" />
-    <None Include="test.csv" />
+    <Content Include="test.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

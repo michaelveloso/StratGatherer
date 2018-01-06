@@ -43,10 +43,8 @@ namespace StratGatherer.MySportsFeeds
             RestClient httpClient = new RestClient(MY_SPORTS_FEEDS_BASE_URL);
 
             BuildRequest();
-            IRestResponse response = httpClient.Get(_request);
-            MySportsFeedsResponse mySportsFeedsResponse = JsonConvert.DeserializeObject<MySportsFeedsResponse>(response.Content);
-
-            return mySportsFeedsResponse;
+            IRestResponse<MySportsFeedsResponse> response = httpClient.Get<MySportsFeedsResponse>(_request);
+            return response.Data;
         }
 
         private void BuildRequest()

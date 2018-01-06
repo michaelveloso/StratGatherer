@@ -54,7 +54,7 @@ namespace StratGatherer.Csv
 
         private void AddBattingHeader()
         {
-            _stringBuilder.AppendLine("Last Name,First Name,Plate Appearances,Min PA,Max PA,Batting Average,On-Base Percentage,Slugging Percentage");
+            _stringBuilder.AppendLine("Last Name,First Name,C,1B,2B,3B,SS,LF,CF,RF,PA,Min PA,Max PA,BA,OBP,SLG");
         }
 
         private void AddBatters()
@@ -71,7 +71,7 @@ namespace StratGatherer.Csv
 
         private void AddPitchingHeader()
         {
-            _stringBuilder.AppendLine("Last Name,First Name,Games Started,Max GS,Innings Pitched,Min IP,Max IP,Batting Average,On-Base Percentage,Slugging Percentage");
+            _stringBuilder.AppendLine("Last Name,First Name,GS,Max GS,IP,Min IP,Max IP,BA,OBP,SLG");
         }
 
         private void AddPitchers()
@@ -91,6 +91,14 @@ namespace StratGatherer.Csv
             List<string> batterStats = new List<string> {
                 batter.LastName,
                 batter.FirstName,
+                batter.FieldingRatings[Position.Catcher],
+                batter.FieldingRatings[Position.FirstBase],
+                batter.FieldingRatings[Position.SecondBase],
+                batter.FieldingRatings[Position.ThirdBase],
+                batter.FieldingRatings[Position.Shortstop],
+                batter.FieldingRatings[Position.LeftField],
+                batter.FieldingRatings[Position.CenterField],
+                batter.FieldingRatings[Position.RightField],
                 batter.PlateAppearances.ToString(),
                 batter.MinimumPlateAppearancesToKeep.ToString(),
                 batter.MaximumPlateAppearances.ToString(),
