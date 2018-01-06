@@ -13,9 +13,9 @@ namespace StratGatherer.Csv
     /// </summary>
     public class CsvPlayerSource : IPlayerSource
     {
-        public const int FIRST_NAME_INDEX = 0;
-        public const int LAST_NAME_INDEX = 1;
-        public const char SEPARATOR = ',';
+        private const int FIRST_NAME_INDEX = 0;
+        private const int LAST_NAME_INDEX = 1;
+        private const char SEPARATOR = ',';
 
         private string _fileLocation;
 

@@ -15,6 +15,11 @@ namespace StratGatherer.Models
         /// The number of plate appearances made by this player in the real-world season.
         /// </summary>
         public int PlateAppearances { get; set; }
+
+        /// <summary>
+        /// The ratings this player has for each fielding position.
+        /// </summary>
+        public Dictionary<Position, string> FieldingRatings { get; set; }
         
         /// <summary>
         /// The minimum number of plate appearances a player must reach to be kept for next Strat season.

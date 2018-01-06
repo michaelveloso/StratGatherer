@@ -57,5 +57,17 @@ namespace StratGatherer.Models
             decimal rawMaximum = value * 1.15m;
             return (int)Math.Round(rawMaximum);
         }
+
+        /// <summary>
+        /// Gets the full name of the player.
+        /// </summary>
+        /// <returns>The full name of the player.</returns>
+        public string FullName
+        {
+            get 
+            {
+                return FirstName + " " + LastName;
+            }            
+        }
     }
 }
