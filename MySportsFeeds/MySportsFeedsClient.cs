@@ -20,56 +20,37 @@ namespace StratGatherer.MySportsFeeds
         private const string PASSWORD_ENV_VARIABLE = "MY_SPORTS_FEEDS_PASSWORD";
 
         private IRestRequest _request;
-        private readonly IEnumerable<PlayerToQuery> _playersToQuery;
 
         /// <summary>
         /// Gets the response from MySportsFeeds for a given collection of players.
         /// </summary>
         /// <param name="playersToQuery">The players to get stats for.</param>
         /// <returns>The response from MySportsFeeds.</returns>
-        public static MySportsFeedsResponse Query(IEnumerable<PlayerToQuery> playersToQuery)
+        public static MySportsFeedsResponse Query()
         {
-            return new MySportsFeedsClient(playersToQuery).Query();
+            return new MySportsFeedsClient().GetResponse();
         }
 
-        private MySportsFeedsClient(IEnumerable<PlayerToQuery> playersToQuery)
+        private MySportsFeedsClient()
         {
-            _playersToQuery = playersToQuery;
             _request = new RestRequest();
         }
 
-        private MySportsFeedsResponse Query()
+        private MySportsFeedsResponse GetResponse()
         {
             RestClient httpClient = new RestClient(MY_SPORTS_FEEDS_BASE_URL);
 
             BuildRequest();
-            IRestResponse<MySportsFeedsResponse> response = httpClient.Get<MySportsFeedsResponse>(_request);
-            return response.Data;
+            IRestResponse response = httpClient.Get(_request);
+            MySportsFeedsResponse result = JsonConvert.DeserializeObject<MySportsFeedsResponse>(response.Content);
+            return result;
         }
 
         private void BuildRequest()
         {
-            AddHeaders();
-            AddQueryParams();            
+            AddHeaders();  
         }
-
-        private void AddQueryParams()
-        {
-            AddStats();
-            AddPlayers();
-        }
-
-        private void AddPlayers()
-        {
-            IEnumerable<string> concatenatedPlayerNames = _playersToQuery.Select(player => player.ConcatenatedName);
-            _request.AddQueryParameter("player", string.Join(",", concatenatedPlayerNames.ToArray()));
-        }
-
-        private void AddStats()
-        {
-            _request.AddQueryParameter("playerstats", "GS,AVG,OBP,SLG,IP,PA");
-        }
-
+        
         private void AddHeaders()
         {
             _request.AddHeader("Authorization", BuildAuthorization());

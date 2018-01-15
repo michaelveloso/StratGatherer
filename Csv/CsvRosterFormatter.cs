@@ -10,30 +10,19 @@ namespace StratGatherer.Csv
     /// <summary>
     /// Formats a collection of players into a csv-ready string.
     /// </summary>
-    public class CsvFormatter
+    public class CsvRosterFormatter : IFormatter
     {
         private StringBuilder _stringBuilder;
         private IEnumerable<Player> _players;
 
-        /// <summary>
-        /// Formats a collection of players into a csv-ready string.
-        /// </summary>
-        /// <param name="players">The collection of players to format.</param>
-        /// <returns>The string to output into a csv.</returns>
-        public static string FormatPlayers(IEnumerable<Player> players)
+        public CsvRosterFormatter()
         {
-            CsvFormatter csvFormatter = new CsvFormatter(players);
-            return csvFormatter.Format();
-        }
-
-        private CsvFormatter(IEnumerable<Player> players)
-        {
-            _players = players;
             _stringBuilder = new StringBuilder();
         }
 
-        private string Format()
+        public string Format(IEnumerable<Player> players)
         {
+            _players = players;
             AddBattingSection();
             _stringBuilder.AppendLine();
             AddPitchingSection();
@@ -102,9 +91,9 @@ namespace StratGatherer.Csv
                 batter.PlateAppearances.ToString(),
                 batter.MinimumPlateAppearancesToKeep.ToString(),
                 batter.MaximumPlateAppearances.ToString(),
-                batter.BattingAverage.ToString(),
-                batter.OnBasePercentage.ToString(),
-                batter.SluggingPercentage.ToString()
+                batter.BattingAverage.ToString("0.###"),
+                batter.OnBasePercentage.ToString("0.###"),
+                batter.SluggingPercentage.ToString("0.###")
             };
 
             return string.Join(",", batterStats);

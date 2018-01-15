@@ -11,6 +11,20 @@ namespace StratGatherer.Models
     /// </summary>
     public class Batter : Player
     {
+        public Batter()
+        {
+            FieldingRatings = new Dictionary<Position, string> { 
+                { Position.Catcher, "X" },
+                { Position.FirstBase, "X" },
+                { Position.SecondBase, "X" },
+                { Position.ThirdBase, "X" },
+                { Position.Shortstop, "X" },
+                { Position.LeftField, "X" },
+                { Position.CenterField, "X" },
+                { Position.RightField, "X" },
+            };
+        }
+
         /// <summary>
         /// The number of plate appearances made by this player in the real-world season.
         /// </summary>

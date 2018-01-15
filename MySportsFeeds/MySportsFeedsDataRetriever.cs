@@ -14,6 +14,8 @@ namespace StratGatherer.MySportsFeeds
     /// </summary>
     public class MySportsFeedsDataRetriever : IDataRetriever
     {
+        IDictionary<string, Player> _allPlayers;
+
         /// <summary>
         /// Gets stats from MySportsFeeds for a given collection of players.
         /// </summary>
@@ -21,11 +23,38 @@ namespace StratGatherer.MySportsFeeds
         /// <returns>A collection of players with their statistics.</returns>
         public IEnumerable<Player> GetStats(IEnumerable<PlayerToQuery> playersToQuery)
         {
-            MySportsFeedsResponse response = MySportsFeedsClient.Query(playersToQuery);
+            MySportsFeedsResponse response = MySportsFeedsClient.Query();
+            _allPlayers = ExtractPlayers(response);
+            IEnumerable<Player> players = playersToQuery.Select(TryAddPlayer);
+            return players;            
+        }
 
+        private Player TryAddPlayer(PlayerToQuery playerToQuery)
+        {
+            try
+            {
+                return _allPlayers[playerToQuery.FullName];
+            }
+            catch
+            {
+                return new Batter
+                {
+                    FirstName = playerToQuery.FirstName,
+                    LastName = playerToQuery.LastName
+                };
+            }
+        }
+
+        private IDictionary<string, Player> ExtractPlayers(MySportsFeedsResponse response){            
             IEnumerable<Player> pitchers = ExtractPitchers(response);
             IEnumerable<Player> batters = ExtractBatters(response);
-            return batters.Concat(pitchers);
+            IEnumerable<Player> players = batters.Concat(pitchers);
+            IDictionary<string, Player> playerDictionary = new Dictionary<string, Player>();
+            foreach (Player player in players)
+            {                
+                playerDictionary[player.FullName] = player;
+            }
+            return playerDictionary;
         }
 
         private IEnumerable<Player> ExtractPitchers(MySportsFeedsResponse rawResponse)
