@@ -57,13 +57,15 @@
     <Compile Include="Converters\MySportsFeedsToBatterConverter.cs" />
     <Compile Include="Converters\MySportsFeedsToPitcherConverter.cs" />
     <Compile Include="Converters\StratCsvLineToBatterConverter.cs" />
+    <Compile Include="Csv\CsvDraftFormatter.cs" />
     <Compile Include="Csv\CsvFieldingRatingsRetriever.cs" />
-    <Compile Include="Csv\CsvFormatter.cs" />
+    <Compile Include="Csv\CsvRosterFormatter.cs" />
     <Compile Include="Csv\CsvPlayerSource.cs" />
     <Compile Include="Csv\CsvReader.cs" />
     <Compile Include="Csv\CsvStatsOutput.cs" />
     <Compile Include="IDataRetriever.cs" />
     <Compile Include="IFieldingRatingsRetriever.cs" />
+    <Compile Include="IFormatter.cs" />
     <Compile Include="IPlayerSource.cs" />
     <Compile Include="IStatsOutput.cs" />
     <Compile Include="Models\Pitcher.cs" />

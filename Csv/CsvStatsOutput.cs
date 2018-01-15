@@ -16,12 +16,13 @@ namespace StratGatherer.Csv
         private const string FILENAME = @"\players.csv";
 
         /// <summary>
-        /// Outputs the stats for a collection of players into a CSV file.
+        /// Outputs the stats for a collection of players into a given format for a CSV file.
         /// </summary>
         /// <param name="players">The collection of players to output stats for.</param>
-        public void OutputStats(IEnumerable<Player> players)
+        /// <param name="formatter">The formatter to use.</param>
+        public void OutputStats(IEnumerable<Player> players, IFormatter formatter)
         {
-            string formattedStats = CsvFormatter.FormatPlayers(players);
+            string formattedStats = formatter.Format(players);
             PrintCsv(formattedStats);
         }
         

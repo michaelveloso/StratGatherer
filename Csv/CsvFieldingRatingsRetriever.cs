@@ -43,9 +43,13 @@ namespace StratGatherer.Csv
         {
             if (player is Batter)
             {
-                Batter batter = player as Batter;
-                batter.FieldingRatings = _stratRatings[batter.FullName].FieldingRatings;
-                return batter;
+                Batter baseBatter = player as Batter;
+                Batter fieldingBatter;
+                if (_stratRatings.TryGetValue(baseBatter.FullName, out fieldingBatter))
+                {
+                    baseBatter.FieldingRatings = fieldingBatter.FieldingRatings;
+                }
+                return baseBatter;
             }
             else
             {

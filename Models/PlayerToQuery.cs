@@ -31,5 +31,17 @@ namespace StratGatherer.Models
                 return string.Format("{0}-{1}", FirstName.ToLower(), LastName.ToLower());
             }
         }
+
+        /// <summary>
+        /// The concatenated name for quering MySportsFeeds.
+        /// </summary>
+        public string FullName
+        {
+            get
+            {
+                return string.Format("{0} {1}", FirstName, LastName);
+            }
+        }
+
     }
 }

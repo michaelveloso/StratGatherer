@@ -58,7 +58,7 @@ namespace StratGatherer
         private static void OutputStatistics(IEnumerable<Player> players)
         {
             IStatsOutput iStatsOutput = new CsvStatsOutput();
-            iStatsOutput.OutputStats(players);
+            iStatsOutput.OutputStats(players, new CsvDraftFormatter());
         }
     }
 }
